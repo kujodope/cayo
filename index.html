@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gedes Cayo Perico</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <div class="container">
+        
+            <h1 class="glow-text">Gedes Cayo Perico</h1>
+            <p style="font-size: 1.1rem; margin-top: 0.5rem; color: var(--text-muted);">Maximize the loot before El Rubio catches on.</p>
+        </header>
+
+        <main class="dashboard">
+            <!-- Left Side: Inputs -->
+            <section class="panel input-panel">
+                <h2>Heist Settings</h2>
+                
+                <div class="input-group">
+                    <label for="primaryTarget">Primary Target</label>
+                    <select id="primaryTarget">
+                        <option value="900000_990000">Sinsimito Tequila</option>
+                        <option value="1000000_1100000">Ruby Necklace</option>
+                        <option value="1100000_1210000">Bearer Bonds</option>
+                        <option value="1300000_1430000" selected>Pink Diamond</option>
+                        <option value="1900000_2090000">Panther Statue</option>
+                    </select>
+                </div>
+
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="difficulty">Difficulty</label>
+                        <select id="difficulty">
+                            <option value="normal">Normal</option>
+                            <option value="hard" selected>Hard (10% Bonus)</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="playerCount">Players</label>
+                        <select id="playerCount">
+                            <option value="1">1 Player</option>
+                            <option value="2" selected>2 Players</option>
+                            <option value="3">3 Players</option>
+                            <option value="4">4 Players</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div id="crewCutsContainer" style="display: none; margin-top: 1rem;">
+                    <h2>Crew Cuts</h2>
+                    <div id="crewCutsInputs" style="display: flex; flex-direction: column; gap: 0.8rem;">
+                        <!-- JS generated sliders -->
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <h2>Loot Lying Around</h2>
+                
+                <div class="loot-inputs">
+                    <div class="loot-item gold">
+                        <label>Gold</label>
+                        <div class="counter">
+                            <button onclick="updateLoot('gold', -1)">-</button>
+                            <input type="number" id="loot-gold" value="3" min="0">
+                            <button onclick="updateLoot('gold', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="loot-item cocaine">
+                        <label>Cocaine</label>
+                        <div class="counter">
+                            <button onclick="updateLoot('cocaine', -1)">-</button>
+                            <input type="number" id="loot-cocaine" value="2" min="0">
+                            <button onclick="updateLoot('cocaine', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="loot-item weed">
+                        <label>Weed</label>
+                        <div class="counter">
+                            <button onclick="updateLoot('weed', -1)">-</button>
+                            <input type="number" id="loot-weed" value="2" min="0">
+                            <button onclick="updateLoot('weed', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="loot-item artwork">
+                        <label>Artwork</label>
+                        <div class="counter">
+                            <button onclick="updateLoot('artwork', -1)">-</button>
+                            <input type="number" id="loot-artwork" value="1" min="0">
+                            <button onclick="updateLoot('artwork', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="loot-item cash">
+                        <label>Cash</label>
+                        <div class="counter">
+                            <button onclick="updateLoot('cash', -1)">-</button>
+                            <input type="number" id="loot-cash" value="4" min="0">
+                            <button onclick="updateLoot('cash', 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Right Side: Results -->
+            <section class="panel results-panel">
+                <h2>Total Potential Take</h2>
+                <div class="gross-take" id="grossTake">$0</div>
+                
+                <div class="breakdown">
+                    <div class="breakdown-item">
+                        <span>Laundering Fee (12%)</span>
+                        <span id="fencingFee" class="deduction">-$0</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>Pavel's Caviar Fund (2%)</span>
+                        <span id="pavelCut" class="deduction">-$0</span>
+                    </div>
+                    <div class="breakdown-item total">
+                        <span>Net Take</span>
+                        <span id="netTake">$0</span>
+                    </div>
+                </div>
+                <div id="dynamicPlayerPayouts" style="margin-top: 1rem; border-top: 1px dashed rgba(255, 255, 255, 0.1); padding-top: 1rem;">
+                    <!-- JS generated player specific cuts -->
+                </div>
+
+                <div class="divider"></div>
+
+                <h2>Who Grabs What?</h2>
+                <p class="subtitle">Coordinate the bags so no one fights over the gold.</p>
+                <div id="playerBags" class="player-bags-container">
+                    <!-- Javascript will populate this -->
+                </div>
+
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+[build]
+  # Since there is no build step (it is pure HTML/CSS/JS), the publish directory is the root directory
+  publish = "."
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Basic security headers recommended by Netlify
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
